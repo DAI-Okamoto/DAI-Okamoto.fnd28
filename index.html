@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+      async function clickNow(handType) {
+        await sleep(1500);  // 1.8秒待機
+
+        const judgeValue = Math.ceil(Math.random() * 3);
+        const result = [];
+
+          switch (judgeValue) {
+            case 1:
+              result[0] = "gu.png";
+              break;
+            case 2:
+              result[0] = "choki.png";
+              break;
+            case 3:
+              result[0] = "pa.png";
+              break;
+            }
+          
+          if ((handType === "gu" && result[0] === "choki.png") || 
+              (handType === "choki" && result[0] === "pa.png") || 
+              (handType === "pa" && result[0] === "gu.png")) {
+            result[1] = "You win!";
+          } else if ((handType === "gu" && result[0] === "pa.png") || 
+                     (handType === "choki" && result[0] === "gu.png") || 
+                     (handType === "pa" && result[0] === "choki.png")) {
+            result[1] = "You lose";
+          } else {
+            result[1] = "draw";
+          }
+
+          // テキストと画像を更新
+          const imgElement = document.querySelector('.result-image');
+          const pElement = document.querySelector('.result-text');
+        
+          imgElement.src = result[0]; // 画像のsrc属性を更新
+          pElement.innerText = result[1]; // テキスト更新
+        }
+    </script>
+    <script>
+      // sleep関数：非同期
+      function sleep(ms) {
+        return new Promise(resolve => {
+
+          // テキストと画像を更新
+          const imgElement = document.querySelector('.result-image');
+          const pElement = document.querySelector('.result-text');
+        
+          imgElement.src = "thinking.png"; // 画像のsrc属性を更新
+          pElement.innerText = "ん~~~!?"; // テキスト更新
+
+          setTimeout(resolve, ms);
+        });
+      }
+    </script>
+    <script>
+      documentArray =["document1.png", "document2.png", "document3.png", "document4.png"];
+
+      function viewDocument(){
+        const judgeValue = Math.ceil(Math.random() * documentArray.length) - 1;
+
+        // 画像更新
+        const imgElement = document.querySelector('.document-image');
+        
+        imgElement.src = documentArray[judgeValue]; // 画像のsrc属性を更新
+      }
+    </script>
+</head>
+<body onload="viewDocument();">
+    <h1>DIG プログラミング基礎 発表課題</h1>
+    <div class="bigbox">
+    <div class="fig1">
+        <img class="document-image" src="">
+    </div>
+    <div class="fig2">
+    <p class="result-text">try it!!</p>
+        <img class="result-image" src="hyoudai.png">
+        <button class="position1" onclick="clickNow('gu');">✊🏻</button>
+        <button class="position2" onclick="clickNow('choki');">✌🏻</button>
+        <button class="position3" onclick="clickNow('pa');">🖐🏻</button>
+    </div>
+    </div>
+</body>
+</html>
