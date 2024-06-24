@@ -1,0 +1,62 @@
+.bigbox {
+    display: flex;
+    margin: 50px;
+   }
+
+.fig1 {
+    margin-right: 50px;
+    /* border: 2px solid purple; */
+    width: 50px;
+}
+
+.fig2 {
+    /* border: 2px solid purple; */
+    width: 150px;
+}
+
+.document-image {
+    position: relative;
+    top: -50px;
+    left: -100px;
+    max-width: 1000px;  /* 最大幅を500ピクセルに設定 */
+    height: auto;      /* 高さを自動調整 */
+}
+
+.position1 {
+    position: relative;
+    top: -50px;
+    left: 790px;
+}
+
+button{
+    width: 3em;
+    height:2em;
+    font-size: 200%;
+}
+
+.position2 {
+    position: relative;
+    top: -114px;
+    left: 890px;
+}
+
+.position3 {
+    position: relative;
+    top: -178px;
+    left: 990px;
+}
+
+.result-text {
+    position: relative;
+    top: -50px;
+    left: 790px;
+    font-weight: bold;
+    color: red;
+    font-size: 150%;
+}
+
+.result-image {
+    position: relative;
+    top: -65px;
+    left: 765px;
+}
